@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    margin: 30px 20px 0px 20px;
+
+    background: #111;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+
+    padding-top: 40px;
+}
+
+/* 컨테이너 */
+#container {
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 130px);
+    overflow: hidden;
+}
+
+/* 결과 창 */
+.res_container {
+    color: #0f0;
+    width: 32%;
+    height: 500px;
+
+    padding: 0;
+    margin: 30px;
+    margin-top: 0;
+
+    border: #0f0 2px solid;
+    border-radius: 10px 10px 0 0;
+}
+
+#res_panel {
+    width: 100%;
+    height: calc(100% - 40px - 20px);
+
+    box-sizing: border-box;
+    padding: 30px;
+    padding-bottom: 50px;
+
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+
+#res_top {
+    width: 100%;
+    height: 40px;
+
+    border-bottom: solid 2px #0f0;
+
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 스택 패널 */
+#stack_panel {
+    width: 220px;
+    padding: 10px;
+    background: #111;
+    color: #0f0;
+    font-family: monospace;
+    overflow-y: auto;
+
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.stack-row {
+    margin-bottom: 6px;
+    padding: 4px;
+    background: #111;
+    color: #0f0;
+    font-family: monospace;
+}
+
+.stack-header {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.stack-body {
+    margin-top: 4px;
+    padding-left: 8px;
+    opacity: 0.9;
+}
+
+.stack-row.active {
+    background: #0f0;
+    color: #000;
+}
+
+/* 네비게이션 바 */
+nav {
+    background-color: gray;
+    position: fixed;
+
+    width: 100%;
+    height: 50px;
+
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    align-items: center;    
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+
+    list-style: none;
+}
+
+/* 실행 버튼 */
+.execution {
+    background-color: rgb(148, 148, 148);
+    width: 200px;
+    height: 50px;
+
+    margin-bottom: 30px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+}
+
+/* 입력 받기 */
+#hidden_input {
+    position: fixed;
+
+    top: 10px;
+    left: 10px;
+
+    width: 20px;
+    height: 20px;
+
+    opacity: 0.05;
+
+    z-index: 9999;
+
+    caret-color: white;
+}
+
+/* 에디터 */
+#editor_container {
+    width: 800px;
+    height: 500px;
+
+    overflow: auto;
+
+    border: 2px white solid;
+}
+
+#editor {
+    display: grid;
+    grid-template-columns: repeat(20, 40px);
+    
+    background: #444;
+
+    gap: 1px;
+
+    width: max-content;
+    height: max-content;
+}
+
+/* 그리드(셀) */
+.cell {
+    width: 40px;
+    height: 40px;
+
+    background: #111;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    user-select: none;
+    pointer-events: auto;
+}
+
+/* 커서(그리드) */
+.cursor {
+    background: #333;
+
+    outline: 2px solid white;
+}
+
+.slidebar {
+    position: fixed;
+    top: 50px;
+    right: 0px;
+
+    height: 100%;
+    width: 50px;
+    background-color: gray;
+}
+
+.ip {
+    background: #00ff00;
+    color: #000;
+}
+
+.ip-trail-1 {
+    background: rgba(0, 255, 0, 0.6);
+}
+
+.ip-trail-2 {
+    background: rgba(0, 255, 0, 0.3);
+}
+
+/* 스크롤 바 설정 */
+body::-webkit-scrollbar { display: none; }
+
+#stack_panel::-webkit-scrollbar,
+#editor_container::-webkit-scrollbar,
+#res_panel::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+#stack_panel::-webkit-scrollbar-track,
+#editor_container::-webkit-scrollbar-track,
+#res_panel::-webkit-scrollbar-track {
+    background-color: gray;
+}
+
+#stack_panel::-webkit-scrollbar-thumb,
+#editor_container::-webkit-scrollbar-thumb,
+#res_panel::-webkit-scrollbar-thumb {
+    background-color: #0f0;
+}
+
+#stack_panel::-webkit-scrollbar-button,
+#editor_container::-webkit-scrollbar-button,
+#res_panel::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* 블록 선택 */
+.selected {
+    background: rgba(100, 150, 255, 0.35);
+}
